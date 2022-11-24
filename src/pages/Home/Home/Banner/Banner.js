@@ -9,6 +9,7 @@ const Banner = () => {
                 <div id="slide1" className="carousel-item relative w-full">
                     <div className='absolute w-full'>
                         <Navbar></Navbar>
+                        <hr className='mx-48 mt-10' />
                     </div>
                     <img src="https://i.pinimg.com/originals/88/35/a9/8835a9d711eed8cf04b96142a48fdebf.jpg" className="w-full h-min" alt='' />
                     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
