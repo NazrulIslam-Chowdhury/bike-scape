@@ -16,9 +16,8 @@ const Banner = () => {
                         <a href="#slide4" className="btn btn-circle">❮</a>
                         <a href="#slide2" className="btn btn-circle">❯</a>
                     </div>
-                    <div className='absolute  left-64'>
-                        <img src={logo} alt="" />
-                        <p className='text-4xl text-gray-200'>fjfjfjfj</p>
+                    <div className='absolute  left-64 top-56'>
+                        <p className='text-4xl text-gray-200'>Bike Scape</p>
                     </div>
                 </div>
                 <div id="slide2" className="carousel-item relative w-full">

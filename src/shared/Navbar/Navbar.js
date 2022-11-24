@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../../assets/1da21df8f5b210a1ee3d46aed5c0c0a6-removebg-preview.png';
 
 const Navbar = () => {
     return (
@@ -23,9 +24,11 @@ const Navbar = () => {
                     </div>
                 </div>
 
-                <Link to='/' className="btn btn-ghost normal-case text-xl" >Bike Scope</Link>
+                <Link to='/' className="btn btn-ghost normal-case text-3xl" >
+                    <img src={logo} className='w-32 h-32' alt="" />
+                    Bike Scape</Link>
                 <div className="navbar-end">
-                    <Link className="btn">Login</Link>
+                    <Link to='/login' className="btn btn-primary">Login</Link>
                 </div>
             </div>
         </div>
