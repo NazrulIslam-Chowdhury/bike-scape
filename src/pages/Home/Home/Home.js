@@ -1,6 +1,7 @@
 import React from 'react';
 import AdvertiseItems from '../AdvertiseItems/AdvertiseItems';
 import Categories from '../Category/Categories';
+import Stat from '../extraSection/Stat';
 import Banner from './Banner/Banner';
 
 const Home = () => {
@@ -9,6 +10,7 @@ const Home = () => {
             <Banner></Banner>
             <AdvertiseItems></AdvertiseItems>
             <Categories></Categories>
+            <Stat></Stat>
         </div>
     );
 };
