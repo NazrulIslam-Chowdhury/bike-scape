@@ -42,13 +42,7 @@ const Navbar = () => {
                         user?.uid ?
                             <Link onClick={logOutOnClick} className="btn btn-primary">Log out</Link>
                             :
-                            <div className="dropdown">
-                                <label tabIndex={0} className="btn btn-primary m-1">Login</label>
-                                <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                                    <li><Link to='/login'>Buyer</Link></li>
-                                    <li><Link to='/seller-login'>Seller</Link></li>
-                                </ul>
-                            </div>
+                            <Link to='/login' className="btn btn-primary">Log out</Link>
                     }
 
                 </div>
