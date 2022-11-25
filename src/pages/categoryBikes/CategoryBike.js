@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaCalendarAlt, FaMale, FaMapMarkerAlt } from 'react-icons/fa';
+import BookingModal from './bookingModal/BookingModal';
 
 const CategoryBike = ({ product }) => {
     const { name, image_url, location, resale_price, original_price, model, quality, published_date, used, brand, details } = product;
@@ -16,7 +17,6 @@ const CategoryBike = ({ product }) => {
                             <p>Condition: {quality}</p>
                             <p>Asking price: Tk {resale_price}</p>
                             <p>Market price: Tk{original_price}</p>
-                            <p>Market price: Tk{original_price}</p>
                             <p>Features: {details}</p>
                         </div>
                         <div className='mt-3'>
@@ -26,8 +26,9 @@ const CategoryBike = ({ product }) => {
                         </div>
                     </div>
                     <div className="card-actions justify-end">
-                        <button className="btn btn-primary font-bold">Book Now</button>
+                        <label htmlFor="booking-modal" className="btn btn-primary font-bold">Book Now</label>
                     </div>
+                    <BookingModal product={product}></BookingModal>
                 </div>
             </div>
         </div>
