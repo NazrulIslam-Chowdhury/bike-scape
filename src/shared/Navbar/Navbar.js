@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/1da21df8f5b210a1ee3d46aed5c0c0a6-removebg-preview.png';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const Navbar = () => {
+    const { user, logOUt } = useContext(AuthContext);
+    // console.log(user);
+    const logOutOnClick = () => {
+        logOUt()
+            .then(() => { })
+            .catch(error => console.error(error))
+    }
+
     return (
         <div>
             <div className="navbar text-gray-200">
@@ -24,11 +33,24 @@ const Navbar = () => {
                     </div>
                 </div>
 
-                <Link to='/' className="btn btn-ghost normal-case text-3xl" >
+                <Link to='/' className="normal-case btn btn-ghost text-3xl" >
                     <img src={logo} className='w-32 h-32' alt="" />
                     Bike Scape</Link>
                 <div className="navbar-end">
-                    <Link to='/login' className="btn btn-primary">Login</Link>
+
+                    {
+                        user?.uid ?
+                            <Link onClick={logOutOnClick} className="btn btn-primary">Log out</Link>
+                            :
+                            <div className="dropdown">
+                                <label tabIndex={0} className="btn btn-primary m-1">Login</label>
+                                <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                                    <li><Link to='/login'>Buyer</Link></li>
+                                    <li><Link to='/seller-login'>Seller</Link></li>
+                                </ul>
+                            </div>
+                    }
+
                 </div>
             </div>
         </div>
