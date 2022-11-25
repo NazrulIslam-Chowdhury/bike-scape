@@ -1,6 +1,7 @@
 
 import Main from "../../main/Main";
 import Blog from "../../pages/Blog/Blog";
+import CategoryBikes from "../../pages/categoryBikes/CategoryBikes";
 import Home from "../../pages/Home/Home/Home";
 import Login from "../../pages/login/Login";
 import SignUp from "../../pages/signUp/SignUp";
@@ -27,6 +28,12 @@ const router = createBrowserRouter([
             {
                 path: '/signup',
                 element: <SignUp></SignUp>
+            },
+            {
+                // it will be in private route
+                path: '/category-bikes/:id',
+                loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`),
+                element: <CategoryBikes></CategoryBikes>
             },
         ]
     }
