@@ -1,11 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 
-const AllSellers = () => {
-    const { data: sellers = [] } = useQuery({
-        queryKey: ['sellers'],
+const AllUser = () => {
+    const { data: users = [] } = useQuery({
+        queryKey: ['users'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/users/all-sellers');
+            const res = await fetch('http://localhost:5000/users');
             const data = await res.json();
             return data;
         }
@@ -20,24 +20,21 @@ const AllSellers = () => {
                             <th>Name</th>
                             <th>Email</th>
                             <th>Activity</th>
-                            <th>Verify</th>
-                            <th>Delete</th>
+                            <th>Make Admin</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            sellers.map((seller, i) =>
-                                <tr key={seller._id} className="hover">
+                            users.map((user, i) =>
+                                <tr key={user._id} className="hover">
                                     <th>{i + 1}</th>
-                                    <td>{seller.displayName}</td>
-                                    <td>{seller.email}</td>
-                                    <td>{seller.activity}</td>
+                                    <td>{user.displayName}</td>
+                                    <td>{user.email}</td>
+                                    <td>{user.activity}</td>
                                     <td>
-                                        <button className='btn btn-primary btn-xs'>Verify</button>
+                                        <button className='btn btn-primary btn-xs'>Make Admin</button>
                                     </td>
-                                    <td>
-                                        <button className='btn btn-error btn-xs'>Delete</button>
-                                    </td>
+
                                 </tr>
                             )
                         }
@@ -49,4 +46,4 @@ const AllSellers = () => {
     );
 };
 
-export default AllSellers;
+export default AllUser;

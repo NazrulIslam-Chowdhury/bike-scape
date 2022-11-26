@@ -46,6 +46,7 @@ const MyOrders = () => {
                             <th>Email</th>
                             <th>Mobile</th>
                             <th>Location</th>
+                            <th>Cancel Order</th>
                         </tr>
                     </thead>
                     <tbody>

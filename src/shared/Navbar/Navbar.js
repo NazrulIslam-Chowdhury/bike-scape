@@ -40,6 +40,7 @@ const Navbar = () => {
                                     <li><Link to='/add-product'>Add A Product</Link></li>
                                 </>
                             }
+                            <li><Link to='/dashboard'>Dashboard</Link></li>
                         </ul>
                     </div>
                     <div className="navbar-center hidden lg:flex">
@@ -57,6 +58,7 @@ const Navbar = () => {
                                     <li><Link to='/add-product'>Add A Product</Link></li>
                                 </>
                             }
+                            <li><Link to='/dashboard'>Dashboard</Link></li>
                         </ul>
                     </div>
                 </div>

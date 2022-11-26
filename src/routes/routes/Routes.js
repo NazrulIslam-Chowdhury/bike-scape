@@ -6,6 +6,7 @@ import Blog from "../../pages/Blog/Blog";
 import CategoryBikes from "../../pages/categoryBikes/CategoryBikes";
 import AllBuyers from "../../pages/Dashboard/AllBuyers/AllBuyers";
 import AllSellers from "../../pages/Dashboard/AllSellers/AllSellers";
+import AllUser from "../../pages/Dashboard/AllUser/AllUser";
 import Dashboard from "../../pages/Dashboard/Dashboard/Dashboard";
 import ReportedItems from "../../pages/Dashboard/ReportedItems/ReportedItems";
 import Home from "../../pages/Home/Home/Home";
@@ -72,10 +73,6 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/dashboard',
-                element: <Dashboard></Dashboard>
-            },
-            {
-                path: '/dashboard/all-buyers',
                 element: <AllBuyers></AllBuyers>
             },
             {
@@ -85,6 +82,10 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/reported-items',
                 element: <ReportedItems></ReportedItems>
+            },
+            {
+                path: '/dashboard/users',
+                element: <AllUser></AllUser>
             }
         ]
     }
