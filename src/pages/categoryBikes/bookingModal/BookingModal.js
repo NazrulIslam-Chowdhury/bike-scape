@@ -2,9 +2,9 @@ import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
 
-const BookingModal = ({ product }) => {
+const BookingModal = ({ bookProduct, setBookProduct }) => {
     const { user } = useContext(AuthContext);
-    const { model, resale_price } = product;
+    const { model, resale_price } = bookProduct;
 
     const handleBooking = event => {
         event.preventDefault();
@@ -41,6 +41,7 @@ const BookingModal = ({ product }) => {
                     form.reset();
                 }
             })
+        setBookProduct(null);
     }
     return (
         <div>

@@ -4,6 +4,7 @@ import Blog from "../../pages/Blog/Blog";
 import CategoryBikes from "../../pages/categoryBikes/CategoryBikes";
 import Home from "../../pages/Home/Home/Home";
 import Login from "../../pages/login/Login";
+import MyOrders from "../../pages/MyOrders/MyOrders";
 import SignUp from "../../pages/signUp/SignUp";
 
 const { createBrowserRouter } = require("react-router-dom");
@@ -34,6 +35,11 @@ const router = createBrowserRouter([
                 path: '/category-bikes/:id',
                 loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`),
                 element: <CategoryBikes></CategoryBikes>
+            },
+            {
+                // it will be buyer route
+                path: '/my-orders',
+                element: <MyOrders></MyOrders>
             },
         ]
     }
