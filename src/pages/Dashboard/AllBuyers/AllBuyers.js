@@ -18,6 +18,7 @@ const AllBuyers = () => {
                 <table className="table w-full">
                     <thead>
                         <tr>
+                            <th></th>
                             <th>Name</th>
                             <th>Email</th>
                             <th>Activity</th>
@@ -31,6 +32,7 @@ const AllBuyers = () => {
                                     <th>{i + 1}</th>
                                     <td>{buyer.displayName}</td>
                                     <td>{buyer.email}</td>
+                                    <td>{buyer.activity}</td>
                                     <td>
                                         <button className='btn btn-error btn-xs'>Delete</button>
                                     </td>
