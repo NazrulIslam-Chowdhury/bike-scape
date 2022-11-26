@@ -17,7 +17,7 @@ const Login = () => {
 
 
     const loginOnClick = data => {
-        console.log(data);
+        // console.log(data);
         loginWithEmail(data.email, data.password)
             .then(result => {
                 const user = result.user;

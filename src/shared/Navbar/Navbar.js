@@ -3,12 +3,14 @@ import { Link } from 'react-router-dom';
 import logo from '../../assets/1da21df8f5b210a1ee3d46aed5c0c0a6-removebg-preview.png';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import useBuyer from '../../hooks/isBuyer';
+import useAdmin from '../../hooks/useAdmin';
 import useSeller from '../../hooks/useSeller';
 
 const Navbar = () => {
     const { user, logOUt, isLoading } = useContext(AuthContext);
     const [isBuyer] = useBuyer(user?.email);
     const [isSeller] = useSeller(user?.email);
+    const [isAdmin] = useAdmin(user?.email);
     // console.log(user);
     const logOutOnClick = () => {
         logOUt()
@@ -40,7 +42,10 @@ const Navbar = () => {
                                     <li><Link to='/add-product'>Add A Product</Link></li>
                                 </>
                             }
-                            <li><Link to='/dashboard'>Dashboard</Link></li>
+                            {
+                                isAdmin &&
+                                <li><Link to='/dashboard'>Dashboard</Link></li>
+                            }
                         </ul>
                     </div>
                     <div className="navbar-center hidden lg:flex">
@@ -58,7 +63,10 @@ const Navbar = () => {
                                     <li><Link to='/add-product'>Add A Product</Link></li>
                                 </>
                             }
-                            <li><Link to='/dashboard'>Dashboard</Link></li>
+                            {
+                                isAdmin &&
+                                <li><Link to='/dashboard'>Dashboard</Link></li>
+                            }
                         </ul>
                     </div>
                 </div>

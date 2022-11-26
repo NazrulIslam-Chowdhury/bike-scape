@@ -45,11 +45,19 @@ const AllUser = () => {
                                     <th>{i + 1}</th>
                                     <td>{user.displayName}</td>
                                     <td>{user.email}</td>
-                                    <td>{user.activity}</td>
+                                    <td>{
+                                        user.activity ?
+                                            user.activity
+                                            :
+                                            user.role
+                                    }</td>
                                     <td>
                                         {
-                                            user?.role !== 'Admin' &&
-                                            <button onClick={() => handleMakeAdmin(user._id)} className='btn btn-primary btn-xs'>Make Admin</button>
+                                            user?.role !== 'Admin' ?
+
+                                                <button onClick={() => handleMakeAdmin(user._id)} className='btn btn-primary btn-xs'>Make Admin</button>
+                                                :
+                                                <button className='btn btn-success btn-xs'>Admin</button>
                                         }
                                     </td>
 
