@@ -5,10 +5,10 @@ import useSeller from '../../hooks/useSeller';
 
 const SellerRoute = ({ children }) => {
     const { user, isLoading } = useContext(AuthContext);
-    const [isSeller] = useSeller(user?.email);
+    const [isSeller, isSellerLoading] = useSeller(user?.email);
     const location = useLocation();
 
-    if (isLoading) {
+    if (isLoading && isSellerLoading) {
         return <progress className="progress w-56"></progress>
     }
 

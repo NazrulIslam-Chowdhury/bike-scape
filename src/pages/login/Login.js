@@ -8,7 +8,7 @@ import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Navbar from '../../shared/Navbar/Navbar';
 
 const Login = () => {
-    const { loginWithGoogle, loginWithEmail, isLoading } = useContext(AuthContext);
+    const { loginWithGoogle, loginWithEmail } = useContext(AuthContext);
     const { register, handleSubmit, formState: { errors } } = useForm();
     const location = useLocation();
     const navigate = useNavigate();
@@ -63,6 +63,9 @@ const Login = () => {
                                     <span className="label-text">Password</span>
                                 </label>
                                 <input {...register('password', { required: true })} type="password" placeholder="password" className="input input-bordered" />
+                                {
+                                    errors.password && <p className='text-red-500 text-lg font-semibold'>{errors.password.message}</p>
+                                }
                                 <label className="label">
                                     <Link to='/' className="label-text-alt link link-hover">Forgot password?</Link>
                                 </label>

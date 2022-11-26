@@ -3,14 +3,14 @@ import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { FaGoogle, FaLongArrowAltRight, FaSmileBeam } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Navbar from '../../shared/Navbar/Navbar';
 
 const SignUp = () => {
     const { loginWithGoogle, createUser } = useContext(AuthContext);
     const { register, formState: { errors }, handleSubmit } = useForm();
-
+    const navigate = useNavigate();
     const createUserOnClick = data => {
         console.log(data)
         // console.log(data.displayName, data.email, data.password, data.url, data.activity)
@@ -39,6 +39,7 @@ const SignUp = () => {
                 if (data.acknowledged) {
                     toast.success('User added successfully');
                 }
+                navigate('/');
             })
     }
 
@@ -64,6 +65,7 @@ const SignUp = () => {
                     .then(res => res.json())
                     .then(data => {
                         // console.log(data)
+                        navigate('/');
                     })
             })
             .catch(error => console.error(error))

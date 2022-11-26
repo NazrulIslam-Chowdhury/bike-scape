@@ -1,8 +1,12 @@
 
+import DasboardLayout from "../../main/DasboardLayout";
 import Main from "../../main/Main";
 import AddProduct from "../../pages/AddProduct/AddProduct";
 import Blog from "../../pages/Blog/Blog";
 import CategoryBikes from "../../pages/categoryBikes/CategoryBikes";
+import AllBuyers from "../../pages/Dashboard/AllBuyers/AllBuyers";
+import AllSellers from "../../pages/Dashboard/AllSellers/AllSellers";
+import Dashboard from "../../pages/Dashboard/Dashboard/Dashboard";
 import Home from "../../pages/Home/Home/Home";
 import Login from "../../pages/login/Login";
 import MyOrders from "../../pages/MyOrders/MyOrders";
@@ -42,7 +46,7 @@ const router = createBrowserRouter([
             {
                 // it will be buyer route
                 path: '/my-orders',
-                element: <PrivateRoute><MyOrders></MyOrders></PrivateRoute>
+                element: <MyOrders></MyOrders>
             },
             {
                 // it will be seller route
@@ -55,7 +59,27 @@ const router = createBrowserRouter([
                 element: <AddProduct></AddProduct>
             },
         ]
+    },
+    {
+        path: '/dashboard',
+        element: <DasboardLayout></DasboardLayout>,
+        children: [
+            {
+                path: '/dashboard',
+                element: <Dashboard></Dashboard>
+            },
+            {
+                path: '/dashboard/all-buyers',
+                element: <AllBuyers></AllBuyers>
+            },
+            {
+                path: '/dashboard/all-sellers',
+                element: <AllSellers></AllSellers>
+            }
+        ]
     }
+
+
 ])
 
 export default router;

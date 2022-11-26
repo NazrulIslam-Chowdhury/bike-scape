@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../../AuthProvider/AuthProvider';
 
 const Stat = () => {
+    const { user } = useContext(AuthContext);
     return (
         <div className='text-center mt-10'>
             <div className="stats shadow">
@@ -27,7 +29,7 @@ const Stat = () => {
                     <div className="stat-figure text-secondary">
                         <div className="avatar online">
                             <div className="w-16 rounded-full">
-                                <img src="https://placeimg.com/128/128/people" alt='' />
+                                <img src={user?.photoURL} alt='' />
                             </div>
                         </div>
                     </div>
