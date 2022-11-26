@@ -7,10 +7,12 @@ import CategoryBikes from "../../pages/categoryBikes/CategoryBikes";
 import AllBuyers from "../../pages/Dashboard/AllBuyers/AllBuyers";
 import AllSellers from "../../pages/Dashboard/AllSellers/AllSellers";
 import Dashboard from "../../pages/Dashboard/Dashboard/Dashboard";
+import ReportedItems from "../../pages/Dashboard/ReportedItems/ReportedItems";
 import Home from "../../pages/Home/Home/Home";
 import Login from "../../pages/login/Login";
 import MyOrders from "../../pages/MyOrders/MyOrders";
 import MyProducts from "../../pages/MyProducts/MyProducts";
+import NotFound from "../../pages/NotFound/NotFound";
 import SignUp from "../../pages/signUp/SignUp";
 import PrivateRoute from "../privateRoute/PrivateRoute";
 
@@ -58,6 +60,10 @@ const router = createBrowserRouter([
                 path: '/add-product',
                 element: <AddProduct></AddProduct>
             },
+            {
+                path: '*',
+                element: <NotFound></NotFound>
+            }
         ]
     },
     {
@@ -75,6 +81,10 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/all-sellers',
                 element: <AllSellers></AllSellers>
+            },
+            {
+                path: '/dashboard/reported-items',
+                element: <ReportedItems></ReportedItems>
             }
         ]
     }
