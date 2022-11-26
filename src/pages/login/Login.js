@@ -1,15 +1,20 @@
-import { data } from 'autoprefixer';
+
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
-import { FaArrowAltCircleRight, FaGoogle, FaLongArrowAltRight, FaSmileBeam } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { FaGoogle, FaLongArrowAltRight, FaSmileBeam } from 'react-icons/fa';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Navbar from '../../shared/Navbar/Navbar';
 
 const Login = () => {
-    const { loginWithGoogle, loginWithEmail } = useContext(AuthContext);
+    const { loginWithGoogle, loginWithEmail, isLoading } = useContext(AuthContext);
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const from = location.state?.from?.pathname || '/';
+
 
     const loginOnClick = data => {
         console.log(data);
@@ -17,7 +22,8 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 toast.success('Login successfully')
-                console.log(user)
+                // console.log(user)
+                navigate(from, { replace: true });
             })
             .catch(error => console.error(error))
     }
@@ -28,6 +34,7 @@ const Login = () => {
                 const user = result.user;
                 toast.success(`${user.displayName}Logged in successfully`)
                 // console.log(user)
+                navigate(from, { replace: true })
             })
             .catch(error => console.error(error))
     }

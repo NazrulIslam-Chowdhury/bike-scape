@@ -2,9 +2,11 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/1da21df8f5b210a1ee3d46aed5c0c0a6-removebg-preview.png';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import useBuyer from '../../hooks/isBuyer';
 
 const Navbar = () => {
     const { user, logOUt } = useContext(AuthContext);
+    const [isBuyer] = useBuyer(user?.email);
     // console.log(user);
     const logOutOnClick = () => {
         logOUt()
@@ -23,12 +25,22 @@ const Navbar = () => {
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                             <li><Link to='/'>Home</Link></li>
                             <li><Link to='/blog'>Blog</Link></li>
+                            {
+                                isBuyer &&
+                                <li><Link to='/my-orders'>My Orders</Link></li>
+                            }
                         </ul>
                     </div>
                     <div className="navbar-center hidden lg:flex">
                         <ul className="menu menu-horizontal p-0">
                             <li><Link to='/'>Home</Link></li>
-                            <li><Link to='/'>Blog</Link></li>
+                            <li><Link to='/blog'>Blog</Link></li>
+                            {
+                                isBuyer &&
+                                <li><Link to='/my-orders'>My Orders</Link></li>
+                            }
+                            {/* <li><Link to='/'>Blog</Link></li>
+                            <li><Link to='/'>Blog</Link></li> */}
                         </ul>
                     </div>
                 </div>
@@ -42,7 +54,7 @@ const Navbar = () => {
                         user?.uid ?
                             <Link onClick={logOutOnClick} className="btn btn-primary">Log out</Link>
                             :
-                            <Link to='/login' className="btn btn-primary">Log out</Link>
+                            <Link to='/login' className="btn btn-primary">Login</Link>
                     }
 
                 </div>
