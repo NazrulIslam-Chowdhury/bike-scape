@@ -18,7 +18,7 @@ const AllSellers = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 if (data.acknowledged) {
                     toast.success('Seller deleted successfully');
                     refetch();
