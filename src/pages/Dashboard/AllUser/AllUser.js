@@ -1,15 +1,30 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import toast from 'react-hot-toast';
 
 const AllUser = () => {
-    const { data: users = [] } = useQuery({
+    const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
             const res = await fetch('http://localhost:5000/users');
             const data = await res.json();
             return data;
         }
-    })
+    });
+
+    const handleMakeAdmin = id => {
+        fetch(`http://localhost:5000/users/admin/${id}`, {
+            method: 'PUT'
+        })
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data)
+                if (data.modifiedCount > 0) {
+                    toast.success('Admin created successfully');
+                    refetch();
+                }
+            })
+    }
     return (
         <div>
             <div className="overflow-x-auto">
@@ -32,7 +47,10 @@ const AllUser = () => {
                                     <td>{user.email}</td>
                                     <td>{user.activity}</td>
                                     <td>
-                                        <button className='btn btn-primary btn-xs'>Make Admin</button>
+                                        {
+                                            user?.role !== 'Admin' &&
+                                            <button onClick={() => handleMakeAdmin(user._id)} className='btn btn-primary btn-xs'>Make Admin</button>
+                                        }
                                     </td>
 
                                 </tr>
