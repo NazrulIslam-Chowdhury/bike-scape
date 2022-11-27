@@ -3,10 +3,12 @@ import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 // import toast from 'react-hot-toast';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 import Navbar from '../../shared/Navbar/Navbar';
 
 const MyOrders = () => {
     const { user } = useContext(AuthContext);
+    useTitle('My Orders');
     // const [bookings, setBookings] = useState([]);
     const { data: orders = [], refetch } = useQuery({
         queryKey: ['orders', user?.email],

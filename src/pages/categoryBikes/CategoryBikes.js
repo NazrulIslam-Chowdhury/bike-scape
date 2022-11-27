@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { FaArrowAltCircleLeft } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router-dom';
+import useTitle from '../../hooks/useTitle';
 import Navbar from '../../shared/Navbar/Navbar';
 import BookingModal from './bookingModal/BookingModal';
 import CategoryBike from './CategoryBike';
 
 const CategoryBikes = () => {
     const bikes = useLoaderData();
-    const [bookProduct, setBookProduct] = useState(null)
+    const [bookProduct, setBookProduct] = useState(null);
+    useTitle('Category Bikes');
 
     return (
         <div>

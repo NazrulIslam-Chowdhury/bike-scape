@@ -1,8 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import toast from 'react-hot-toast';
+import useTitle from '../../../hooks/useTitle';
 
 const ReportedItems = () => {
+    useTitle('Dashboard/Reported Items');
     const { data: items = [], refetch } = useQuery({
         queryKey: ['items'],
         queryFn: async () => {

@@ -2,6 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import useTitle from '../../hooks/useTitle';
 
 import Navbar from '../../shared/Navbar/Navbar';
 
@@ -9,6 +10,7 @@ const AddProduct = () => {
     // const { user } = useContext(AuthContext);
     const { register, handleSubmit } = useForm();
     const navigate = useNavigate();
+    useTitle('Add a Product');
 
     const handleProductInfo = data => {
         // console.log(data);

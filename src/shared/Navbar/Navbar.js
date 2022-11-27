@@ -69,12 +69,15 @@ const Navbar = () => {
                                 isAdmin &&
                                 <li><Link to='/dashboard'>Dashboard</Link></li>
                             }
+                            <div className="tooltip tooltip-bottom tooltip-success" data-tip={user?.displayName}>
+                                <img className='w-10 h-10 rounded-full border-none mr-1' src={user?.photoURL} alt="" />
+                            </div>
                         </ul>
                     </div>
                 </div>
 
                 <Link to='/' className="normal-case btn btn-ghost text-3xl" >
-                    <img src={logo} className='w-32 h-32' alt="" />
+                    <img src={logo} className='w-28 h-28 mb-2' alt="" />
                     Bike Scape</Link>
                 <div className="navbar-end">
 

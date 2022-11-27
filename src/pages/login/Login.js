@@ -5,6 +5,7 @@ import toast from 'react-hot-toast';
 import { FaGoogle, FaLongArrowAltRight, FaSmileBeam } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 import Navbar from '../../shared/Navbar/Navbar';
 
 const Login = () => {
@@ -12,6 +13,7 @@ const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const location = useLocation();
     const navigate = useNavigate();
+    useTitle('Login');
 
     const from = location.state?.from?.pathname || '/';
 

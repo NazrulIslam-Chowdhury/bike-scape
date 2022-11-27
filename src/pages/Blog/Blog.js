@@ -1,8 +1,10 @@
 import React from 'react';
 import { FaQuestion } from 'react-icons/fa';
+import useTitle from '../../hooks/useTitle';
 import Navbar from '../../shared/Navbar/Navbar';
 
 const Blog = () => {
+    useTitle('Blog');
     return (
         <div>
             <Navbar></Navbar>

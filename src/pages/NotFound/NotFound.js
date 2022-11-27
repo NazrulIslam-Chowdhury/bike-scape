@@ -1,8 +1,10 @@
 import React from 'react';
 import img from '../../assets/PuXipAW3AXUzUJ4uYyxPKC-1200-80.jpg';
+import useTitle from '../../hooks/useTitle';
 import Navbar from '../../shared/Navbar/Navbar';
 
 const NotFound = () => {
+    useTitle('404 Page Not Found');
     return (
         <div>
             <Navbar></Navbar>

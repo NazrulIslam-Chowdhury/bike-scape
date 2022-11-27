@@ -3,6 +3,7 @@ import toast from 'react-hot-toast';
 import { FaCalendarAlt, FaMale, FaMapMarkerAlt } from 'react-icons/fa';
 
 
+
 const CategoryBike = ({ bike, setBookProduct }) => {
     const { name, image_url, location, resale_price, original_price, model, quality, published_date, used, brand, details } = bike;
 
