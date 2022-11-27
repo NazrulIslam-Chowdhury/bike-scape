@@ -8,7 +8,7 @@ import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Navbar from '../../shared/Navbar/Navbar';
 
 const SignUp = () => {
-    const { loginWithGoogle, createUser } = useContext(AuthContext);
+    const { loginWithGoogle, createUser, updateUser } = useContext(AuthContext);
     const { register, formState: { errors }, handleSubmit } = useForm();
     const navigate = useNavigate();
     const createUserOnClick = data => {
@@ -19,11 +19,19 @@ const SignUp = () => {
                 // console.log(result);
                 const user = result.user;
                 toast.success(`Id for ${user.displayName} is created`);
+                const userInfo = {
+                    displayName: data.displayName,
+                    photoURL: data.url
+                }
+                updateUser(userInfo)
+                    .then(() => { })
+                    .catch(err => console.error(err))
             })
             .catch(error => console.error(error))
 
-        const user = {
+        const saveUser = {
             displayName: data.displayName,
+            photoURL: data.url,
             email: data.email,
             activity: data.activity
         }
@@ -32,7 +40,7 @@ const SignUp = () => {
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(user)
+            body: JSON.stringify(saveUser)
         })
             .then(res => res.json())
             .then(data => {

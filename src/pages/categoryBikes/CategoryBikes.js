@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FaArrowAltCircleLeft } from 'react-icons/fa';
 import { useLoaderData } from 'react-router-dom';
 import Navbar from '../../shared/Navbar/Navbar';
 import BookingModal from './bookingModal/BookingModal';
@@ -22,6 +23,7 @@ const CategoryBikes = () => {
                 bookProduct &&
                 <BookingModal bookProduct={bookProduct} setBookProduct={setBookProduct}></BookingModal>
             }
+            <button className='btn ml-14 mt-6 flex items-center gap-x-1'><FaArrowAltCircleLeft /> Back</button>
         </div>
     );
 };

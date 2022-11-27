@@ -28,7 +28,7 @@ const Stat = () => {
                 <div className="stat">
                     <div className="stat-figure text-secondary">
                         <div className="avatar online">
-                            <div className="w-16 rounded-full">
+                            <div className="w-16 rounded-full" >
                                 <img src={user?.photoURL} alt='' />
                             </div>
                         </div>

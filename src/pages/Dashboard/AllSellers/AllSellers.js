@@ -13,17 +13,21 @@ const AllSellers = () => {
     })
 
     const handleDelete = id => {
-        fetch(`http://localhost:5000/users/all-sellers/${id}`, {
-            method: 'DELETE'
-        })
-            .then(res => res.json())
-            .then(data => {
-                // console.log(data);
-                if (data.acknowledged) {
-                    toast.success('Seller deleted successfully');
-                    refetch();
-                }
+        const proceed = window.confirm('Are you sure you want delete this seller');
+        if (proceed) {
+            fetch(`http://localhost:5000/users/all-sellers/${id}`, {
+                method: 'DELETE'
             })
+                .then(res => res.json())
+                .then(data => {
+                    // console.log(data);
+                    if (data.acknowledged) {
+                        toast.success('Seller deleted successfully');
+                        refetch();
+                    }
+                })
+        }
+
     }
     return (
         <div>

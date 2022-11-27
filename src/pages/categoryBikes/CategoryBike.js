@@ -25,11 +25,13 @@ const CategoryBike = ({ product, setBookProduct }) => {
                             <p className='flex items-center gap-x-1'><FaCalendarAlt /> {published_date}</p>
                         </div>
                     </div>
-                    <div className="card-actions justify-end">
+                    <div className="card-actions justify-between mt-5">
                         <label onClick={() => setBookProduct(product)} htmlFor="booking-modal" className="btn btn-primary font-bold">Book Now</label>
+                        <label className="btn btn-outline font-bold">Report Item</label>
                     </div>
                 </div>
             </div>
+
         </div>
     );
 };
