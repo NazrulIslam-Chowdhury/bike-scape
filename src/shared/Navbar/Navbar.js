@@ -17,9 +17,11 @@ const Navbar = () => {
             .then(() => { })
             .catch(error => console.error(error))
     }
+
     if (isLoading) {
         return <progress className="progress w-56"></progress>;
     }
+
     return (
         <div>
             <div className="navbar text-gray-200">

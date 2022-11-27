@@ -8,7 +8,7 @@ const SellerRoute = ({ children }) => {
     const [isSeller, isSellerLoading] = useSeller(user?.email);
     const location = useLocation();
 
-    if (isLoading && isSellerLoading) {
+    if (isLoading || isSellerLoading) {
         return <progress className="progress w-56"></progress>
     }
 

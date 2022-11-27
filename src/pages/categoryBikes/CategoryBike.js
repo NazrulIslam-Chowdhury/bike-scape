@@ -1,9 +1,34 @@
 import React from 'react';
+import toast from 'react-hot-toast';
 import { FaCalendarAlt, FaMale, FaMapMarkerAlt } from 'react-icons/fa';
 
 
-const CategoryBike = ({ product, setBookProduct }) => {
-    const { name, image_url, location, resale_price, original_price, model, quality, published_date, used, brand, details } = product;
+const CategoryBike = ({ bike, setBookProduct }) => {
+    const { name, image_url, location, resale_price, original_price, model, quality, published_date, used, brand, details } = bike;
+
+    const handleReport = () => {
+        const item = {
+            model,
+            brand,
+            resale_price,
+            name,
+            published_date
+        }
+        fetch('http://localhost:5000/report-items', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(item)
+        })
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data);
+                if (data.acknowledged) {
+                    toast.success('Report item successful');
+                }
+            })
+    }
     return (
         <div>
             <div className="card card-compact w-96 bg-base-200 shadow-2xl rounded-none">
@@ -26,8 +51,8 @@ const CategoryBike = ({ product, setBookProduct }) => {
                         </div>
                     </div>
                     <div className="card-actions justify-between mt-5">
-                        <label onClick={() => setBookProduct(product)} htmlFor="booking-modal" className="btn btn-primary font-bold">Book Now</label>
-                        <label className="btn btn-outline font-bold">Report Item</label>
+                        <label onClick={() => setBookProduct(bike)} htmlFor="booking-modal" className="btn btn-primary font-bold">Book Now</label>
+                        <label onClick={handleReport} className="btn btn-outline font-bold">Report Item</label>
                     </div>
                 </div>
             </div>

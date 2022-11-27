@@ -7,7 +7,6 @@ import CategoryBikes from "../../pages/categoryBikes/CategoryBikes";
 import AllBuyers from "../../pages/Dashboard/AllBuyers/AllBuyers";
 import AllSellers from "../../pages/Dashboard/AllSellers/AllSellers";
 import AllUser from "../../pages/Dashboard/AllUser/AllUser";
-import Dashboard from "../../pages/Dashboard/Dashboard/Dashboard";
 import ReportedItems from "../../pages/Dashboard/ReportedItems/ReportedItems";
 import Home from "../../pages/Home/Home/Home";
 import Login from "../../pages/login/Login";
@@ -16,6 +15,7 @@ import MyProducts from "../../pages/MyProducts/MyProducts";
 import NotFound from "../../pages/NotFound/NotFound";
 import SignUp from "../../pages/signUp/SignUp";
 import AdminRoute from "../AdminRoute/AdminRoute";
+import BuyerRoute from "../BuyerRoute/BuyerRoute";
 import PrivateRoute from "../privateRoute/PrivateRoute";
 import SellerRoute from "../SellerRoute/SellerRoute";
 
@@ -45,13 +45,13 @@ const router = createBrowserRouter([
             {
                 // it will be in private route
                 path: '/category-bikes/:id',
-                loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`),
-                element: <CategoryBikes></CategoryBikes>
+                loader: ({ params }) => fetch(`http://localhost:5000/bikes/${params.id}`),
+                element: <PrivateRoute><CategoryBikes></CategoryBikes></PrivateRoute>
             },
             {
                 // it will be buyer route
                 path: '/my-orders',
-                element: <MyOrders></MyOrders>
+                element: <BuyerRoute><MyOrders></MyOrders></BuyerRoute>
             },
             {
                 // it will be seller route
@@ -75,19 +75,19 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/dashboard',
-                element: <AllBuyers></AllBuyers>
+                element: <AdminRoute><AllBuyers></AllBuyers></AdminRoute>
             },
             {
                 path: '/dashboard/all-sellers',
-                element: <AllSellers></AllSellers>
+                element: <AdminRoute><AllSellers></AllSellers></AdminRoute>
             },
             {
                 path: '/dashboard/reported-items',
-                element: <ReportedItems></ReportedItems>
+                element: <AdminRoute><ReportedItems></ReportedItems></AdminRoute>
             },
             {
                 path: '/dashboard/users',
-                element: <AllUser></AllUser>
+                element: <AdminRoute><AllUser></AllUser></AdminRoute>
             }
         ]
     }

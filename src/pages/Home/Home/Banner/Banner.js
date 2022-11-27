@@ -16,11 +16,12 @@ const Banner = () => {
                         <a href="#slide4" className="btn btn-circle">❮</a>
                         <a href="#slide2" className="btn btn-circle">❯</a>
                     </div>
-                    <div className='absolute  left-64 top-56'>
-                        <p className='text-4xl text-gray-200'>Bike Scape</p>
-                    </div>
                 </div>
                 <div id="slide2" className="carousel-item relative w-full">
+                    <div className='absolute w-full'>
+                        <Navbar></Navbar>
+                        <hr className='mx-48 mt-10' />
+                    </div>
                     <img src="https://wallpohub.com/wp-content/uploads/2022/07/Red-Stylish-Bike-Wallpaper-for-Background-Image-Picture-4k-Hd-3840x2160-for-Laptop-Pc-Computer-Mac-Desktop-1-2048x1152.jpg" className="w-full" alt='' />
                     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
                         <a href="#slide1" className="btn btn-circle">❮</a>
@@ -28,6 +29,10 @@ const Banner = () => {
                     </div>
                 </div>
                 <div id="slide3" className="carousel-item relative w-full">
+                    <div className='absolute w-full'>
+                        <Navbar></Navbar>
+                        <hr className='mx-48 mt-10' />
+                    </div>
                     <img src="https://placeimg.com/800/200/arch" className="w-full" alt='' />
                     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
                         <a href="#slide2" className="btn btn-circle">❮</a>

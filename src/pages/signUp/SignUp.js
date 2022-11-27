@@ -12,8 +12,6 @@ const SignUp = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const navigate = useNavigate();
     const createUserOnClick = data => {
-        console.log(data)
-        // console.log(data.displayName, data.email, data.password, data.url, data.activity)
         createUser(data.email, data.password)
             .then(result => {
                 // console.log(result);
