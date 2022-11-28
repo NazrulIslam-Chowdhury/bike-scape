@@ -1,16 +1,21 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { FaArrowAltCircleLeft } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 import useTitle from '../../hooks/useTitle';
 import Navbar from '../../shared/Navbar/Navbar';
 import BookingModal from './bookingModal/BookingModal';
 import CategoryBike from './CategoryBike';
 
 const CategoryBikes = () => {
+    const { isLoading } = useContext(AuthContext);
     const bikes = useLoaderData();
     const [bookProduct, setBookProduct] = useState(null);
     useTitle('Category Bikes');
 
+    if (isLoading) {
+        return <progress className="progress w-56"></progress>;
+    }
     return (
         <div>
             <Navbar></Navbar>

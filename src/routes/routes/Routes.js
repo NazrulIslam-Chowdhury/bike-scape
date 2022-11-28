@@ -46,7 +46,7 @@ const router = createBrowserRouter([
             {
                 // it will be in private route
                 path: '/category-bikes/:id',
-                loader: ({ params }) => fetch(`http://localhost:5000/bikes/${params.id}`),
+                loader: ({ params }) => fetch(`https://assignment-12-server-iota.vercel.app/bikes/${params.id}`),
                 element: <PrivateRoute><CategoryBikes></CategoryBikes></PrivateRoute>
             },
             {
@@ -57,7 +57,7 @@ const router = createBrowserRouter([
             {
                 // it will be buyer route
                 path: '/orders-payment/:id',
-                loader: ({ params }) => fetch(`http://localhost:5000/bookings/${params.id}`),
+                loader: ({ params }) => fetch(`https://assignment-12-server-iota.vercel.app/bookings/${params.id}`),
                 element: <BuyerRoute><Payment></Payment></BuyerRoute>
             },
             {

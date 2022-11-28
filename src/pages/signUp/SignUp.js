@@ -36,7 +36,7 @@ const SignUp = () => {
             email: data.email,
             activity: data.activity
         }
-        fetch('http://localhost:5000/users', {
+        fetch('https://assignment-12-server-iota.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -62,9 +62,10 @@ const SignUp = () => {
                 const socialUser = {
                     displayName: user.displayName,
                     email: user.email,
+                    photoURL: user.photoURL,
                     activity: "Buyer"
                 }
-                fetch('http://localhost:5000/users', {
+                fetch('https://assignment-12-server-iota.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

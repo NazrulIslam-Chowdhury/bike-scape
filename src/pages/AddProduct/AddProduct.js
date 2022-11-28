@@ -30,7 +30,7 @@ const AddProduct = () => {
             details: data.details
         }
 
-        fetch('http://localhost:5000/bikes', {
+        fetch('https://assignment-12-server-iota.vercel.app/bikes', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -48,6 +48,9 @@ const Navbar = () => {
                                 isAdmin &&
                                 <li><Link to='/dashboard'>Dashboard</Link></li>
                             }
+                            <div className="tooltip tooltip-bottom tooltip-success" data-tip={user?.displayName}>
+                                <img className='w-10 h-10 rounded-full border-none mr-1' src={user?.photoURL} alt="" />
+                            </div>
                         </ul>
                     </div>
                     <div className="navbar-center hidden lg:flex">
@@ -79,20 +82,21 @@ const Navbar = () => {
                 <Link to='/' className="normal-case btn btn-ghost text-3xl" >
                     <img src={logo} className='w-28 h-28 mb-2' alt="" />
                     Bike Scape</Link>
+                <label htmlFor="dashboard-drawer" tabIndex={2} className="btn btn-ghost lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                </label>
                 <div className="navbar-end">
 
                     <div className='mr-2'>
                         {
                             user?.uid ?
-                                <Link onClick={logOutOnClick} className="btn btn-primary">Log out</Link>
+                                <Link onClick={logOutOnClick} className="btn btn-primary lg:btn md:btn-sm sm:btn-xs">Log out</Link>
                                 :
-                                <Link to='/login' className="btn btn-primary">Login</Link>
+                                <Link to='/login' className="btn btn-primary lg:btn md:btn-sm sm:btn-xs">Login</Link>
                         }
                     </div>
 
-                    <label htmlFor="dashboard-drawer" tabIndex={2} className="btn btn-ghost lg:hidden">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
-                    </label>
+
                 </div>
             </div>
         </div>

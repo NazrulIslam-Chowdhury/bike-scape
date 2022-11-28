@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaCalendarAlt, FaMale, FaMapMarkerAlt } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Item = ({ item }) => {
     const { name, brand, model, quality, resale_price, original_price, image_url, used, location, published_date, details } = item;
@@ -22,7 +23,9 @@ const Item = ({ item }) => {
                         <p className='flex items-center'><FaMale /> {name}</p>
                         <p className='flex items-center gap-x-2'>
                             <FaCalendarAlt />  {published_date}</p>
-                        <button className="btn btn-primary mt-6 font-bold">Buy</button>
+                        <Link to=''>
+                            <button className="btn btn-primary mt-6 font-bold">Buy</button>
+                        </Link>
                     </div>
                 </div>
             </div>

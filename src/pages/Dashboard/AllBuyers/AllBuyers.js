@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import toast from 'react-hot-toast';
+import { FaUserAlt } from 'react-icons/fa';
 import useTitle from '../../../hooks/useTitle';
 
 const AllBuyers = () => {
@@ -9,7 +10,7 @@ const AllBuyers = () => {
     const { data: buyers = [], refetch } = useQuery({
         queryKey: ['buyers'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/users/all-buyers');
+            const res = await fetch('https://assignment-12-server-iota.vercel.app/users/all-buyers');
             const data = await res.json();
             return data;
         }
@@ -18,7 +19,7 @@ const AllBuyers = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure you want delete this buyer');
         if (proceed) {
-            fetch(`http://localhost:5000/users/all-buyers/${id}`, {
+            fetch(`https://assignment-12-server-iota.vercel.app/users/all-buyers/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -40,6 +41,7 @@ const AllBuyers = () => {
                     <thead>
                         <tr>
                             <th></th>
+                            <th></th>
                             <th>Name</th>
                             <th>Email</th>
                             <th>Activity</th>
@@ -51,6 +53,18 @@ const AllBuyers = () => {
                             buyers.map((buyer, i) =>
                                 <tr key={buyer._id} className="hover">
                                     <th>{i + 1}</th>
+                                    <th>
+                                        <div className="avatar">
+                                            <div className="w-20 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                                                <img src={
+                                                    buyer?.photoURL ?
+                                                        buyer.photoURL
+                                                        :
+                                                        <FaUserAlt />
+                                                } alt='' />
+                                            </div>
+                                        </div>
+                                    </th>
                                     <td>{buyer.displayName}</td>
                                     <td>{buyer.email}</td>
                                     <td>{buyer.activity}</td>

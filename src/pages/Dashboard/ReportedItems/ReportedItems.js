@@ -8,7 +8,7 @@ const ReportedItems = () => {
     const { data: items = [], refetch } = useQuery({
         queryKey: ['items'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/report-items');
+            const res = await fetch('https://assignment-12-server-iota.vercel.app/report-items');
             const data = await res.json();
             return data;
         }
@@ -17,7 +17,7 @@ const ReportedItems = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure you want to delete this reported item');
         if (proceed) {
-            fetch(`http://localhost:5000/report-items/${id}`, {
+            fetch(`https://assignment-12-server-iota.vercel.app/report-items/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

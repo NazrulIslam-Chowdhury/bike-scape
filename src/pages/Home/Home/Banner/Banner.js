@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from '../../../../shared/Navbar/Navbar';
-import logo from '../../../../assets/1da21df8f5b210a1ee3d46aed5c0c0a6-removebg-preview.png';
+
 
 const Banner = () => {
     return (

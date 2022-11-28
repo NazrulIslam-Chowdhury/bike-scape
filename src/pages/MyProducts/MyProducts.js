@@ -12,7 +12,7 @@ const MyProducts = () => {
     const { data: products = [], refetch } = useQuery({
         queryKey: ['products', user?.email],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/bikes?email=${user?.email}`);
+            const res = await fetch(`https://assignment-12-server-iota.vercel.app/bikes?email=${user?.email}`);
             const data = await res.json();
             return data;
         }
@@ -21,7 +21,7 @@ const MyProducts = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure you want to delete your product');
         if (proceed) {
-            fetch(`http://localhost:5000/bikes/${id}`, {
+            fetch(`https://assignment-12-server-iota.vercel.app/bikes/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -36,47 +36,50 @@ const MyProducts = () => {
     return (
         <div>
             <Navbar></Navbar>
-            <div className='mt-10'>
-                <div className="overflow-x-auto mt-10">
-                    <table className="table w-full">
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th>Name</th>
-                                <th>Model</th>
-                                <th>Brand</th>
-                                <th>Price</th>
-                                <th>Email</th>
-                                <th>Location</th>
-                                <th>Status</th>
-                                <th>Delete</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                products.map((product, i) => <tr key={product._id} className="hover">
-                                    <th>{i + 1}</th>
-                                    <td>{product.name}</td>
-                                    <td>{product.model}</td>
-                                    <td>{product.brand}</td>
-                                    <td>Tk {product.resale_price}</td>
-                                    <td>{product.email}</td>
-                                    <td>{product.location}</td>
-                                    <td>
-                                        <button className='btn btn-primary btn-xs'>Available</button>
-                                    </td>
-                                    <td>
-                                        <button onClick={() => handleDelete(product._id)} className='btn btn-error btn-xs'>Delete</button>
-                                    </td>
-                                </tr>)
-                            }
+            {
+                products.length ?
+                    <div className='mt-10'>
+                        <div className="overflow-x-auto mt-10">
+                            <table className="table w-full">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Name</th>
+                                        <th>Model</th>
+                                        <th>Brand</th>
+                                        <th>Price</th>
+                                        <th>Email</th>
+                                        <th>Location</th>
+                                        <th>Status</th>
+                                        <th>Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {
+                                        products.map((product, i) => <tr key={product._id} className="hover">
+                                            <th>{i + 1}</th>
+                                            <td>{product.name}</td>
+                                            <td>{product.model}</td>
+                                            <td>{product.brand}</td>
+                                            <td>Tk {product.resale_price}</td>
+                                            <td>{product.email}</td>
+                                            <td>{product.location}</td>
+                                            <td>
+                                                <button className='btn btn-primary btn-xs'>Available</button>
+                                            </td>
+                                            <td>
+                                                <button onClick={() => handleDelete(product._id)} className='btn btn-error btn-xs'>Delete</button>
+                                            </td>
+                                        </tr>)
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    :
+                    <div className="divider mt-10 text-2xl text-gray-400 text-center">Add a product to sale</div>
+            }
 
-
-
-                        </tbody>
-                    </table>
-                </div>
-            </div>
         </div>
     );
 };

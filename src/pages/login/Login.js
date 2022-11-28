@@ -51,7 +51,7 @@ const Login = () => {
                         <h1 className="text-5xl font-bold">Login</h1>
                         <p className="py-6">Login for continuing to sell your used products and Get a great deal <FaSmileBeam className='h-12 w-12 mt-2' /> </p>
                     </div>
-                    <form onClick={handleSubmit(loginOnClick)} className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                    <form onSubmit={handleSubmit(loginOnClick)} className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <div className="card-body">
                             <div className="form-control">
                                 <label className="label">

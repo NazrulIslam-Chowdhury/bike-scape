@@ -3,7 +3,7 @@ import toast from 'react-hot-toast';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
 
 const BookingModal = ({ bookProduct, setBookProduct }) => {
-    const { user } = useContext(AuthContext);
+    const { user, isLoading } = useContext(AuthContext);
     const { model, resale_price } = bookProduct;
 
     const handleBooking = event => {
@@ -26,7 +26,7 @@ const BookingModal = ({ bookProduct, setBookProduct }) => {
             number,
             location
         }
-        fetch('http://localhost:5000/bookings', {
+        fetch('https://assignment-12-server-iota.vercel.app/bookings', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
@@ -42,6 +42,10 @@ const BookingModal = ({ bookProduct, setBookProduct }) => {
                 }
             })
         setBookProduct(null);
+    }
+
+    if (isLoading) {
+        return <progress className="progress w-56"></progress>;
     }
     return (
         <div>

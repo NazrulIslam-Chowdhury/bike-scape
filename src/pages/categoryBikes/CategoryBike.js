@@ -15,7 +15,7 @@ const CategoryBike = ({ bike, setBookProduct }) => {
             name,
             published_date
         }
-        fetch('http://localhost:5000/report-items', {
+        fetch('https://assignment-12-server-iota.vercel.app/report-items', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

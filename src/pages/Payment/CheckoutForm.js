@@ -15,7 +15,7 @@ const CheckoutForm = ({ productPayment }) => {
     const { price, name, email, _id } = productPayment;
 
     useEffect(() => {
-        fetch('http://localhost:5000/create-payment-intent', {
+        fetch('https://assignment-12-server-iota.vercel.app/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -83,7 +83,7 @@ const CheckoutForm = ({ productPayment }) => {
                 email,
                 bookingId: _id
             }
-            fetch('http://localhost:5000/payments', {
+            fetch('https://assignment-12-server-iota.vercel.app/payments', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
