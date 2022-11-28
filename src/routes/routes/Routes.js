@@ -13,6 +13,7 @@ import Login from "../../pages/login/Login";
 import MyOrders from "../../pages/MyOrders/MyOrders";
 import MyProducts from "../../pages/MyProducts/MyProducts";
 import NotFound from "../../pages/NotFound/NotFound";
+import Payment from "../../pages/Payment/Payment";
 import SignUp from "../../pages/signUp/SignUp";
 import AdminRoute from "../AdminRoute/AdminRoute";
 import BuyerRoute from "../BuyerRoute/BuyerRoute";
@@ -52,6 +53,12 @@ const router = createBrowserRouter([
                 // it will be buyer route
                 path: '/my-orders',
                 element: <BuyerRoute><MyOrders></MyOrders></BuyerRoute>
+            },
+            {
+                // it will be buyer route
+                path: '/orders-payment/:id',
+                loader: ({ params }) => fetch(`http://localhost:5000/bookings/${params.id}`),
+                element: <BuyerRoute><Payment></Payment></BuyerRoute>
             },
             {
                 // it will be seller route
