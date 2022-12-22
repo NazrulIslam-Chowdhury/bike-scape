@@ -8,14 +8,14 @@ const Blog = () => {
     return (
         <div>
             <Navbar></Navbar>
-            <div className='grid gap-5 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 ml-10 mt-10'>
+            <div className='grid gap-5 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 mx-6 mt-10'>
                 <div className="card  glass">
                     <div className="card-body">
                         <h2 className="card-title flex items-center gap-x-2"> <FaQuestion className='mb-16 h-9 w-9' /> What are the different ways to manage a state in a React application?</h2>
                         <p>  There are Four kinds of state to manage. <br />1. Local state. <br />2. Global state. <br />3. Server state. <br /> 4.URL state.</p>
                     </div>
                 </div>
-                <div className="card w-96 glass">
+                <div className="card glass">
                     <div className="card-body">
                         <h2 className="card-title flex items-center gap-x-2"> <FaQuestion className='mb-16 h-9 w-9' />How does prototypical inheritance works?</h2>
                         <p> The core idea of Prototypal Inheritance is that an object can point to another object and inherit all its properties. The main purpose is to allow multiple instances of an object to share common properties, hence, the Singleton Pattern.</p>
