@@ -1,4 +1,3 @@
-
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
@@ -35,29 +34,9 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 // console.log(user)
+                toast.success(`${user.displayName}Logged in successfully`)
+                navigate(from, { replace: true });
 
-                const socialUser = {
-                    displayName: user.displayName,
-                    email: user.email,
-                    photoURL: user.photoURL,
-                    activity: "Buyer"
-                }
-                if (user.activity) {
-                    fetch('https://assignment-12-server-iota.vercel.app/users', {
-                        method: 'POST',
-                        headers: {
-                            'content-type': 'application/json'
-                        },
-                        body: JSON.stringify(socialUser)
-                    })
-                        .then(res => res.json())
-                        .then(data => {
-                            // console.log(data)
-                            toast.success(`${user.displayName}Logged in successfully`)
-                            navigate(from, { replace: true })
-                        })
-                }
-                return;
             })
             .catch(error => console.error(error))
     }
@@ -94,6 +73,7 @@ const Login = () => {
                                 </label>
                             </div>
                             <p>Don't have an account ? <Link to='/signup' className='font-semibold text-lg'>Sign up now</Link></p>
+                            <p className='text-lg font-semibold text-gray-300 mt-2'><strong>Note:</strong> Without registration you can not see your ordered products or selling products.</p>
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Login</button>
                                 <button onClick={handleGoogleLogIn} className="btn btn-primary mt-5"><FaGoogle className='mr-2' /> Login with Google <FaLongArrowAltRight className='ml-2 h-6 w-6' /></button>
