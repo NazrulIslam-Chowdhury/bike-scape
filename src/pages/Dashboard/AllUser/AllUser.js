@@ -1,16 +1,18 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 import { FaUserAlt } from 'react-icons/fa';
 import useTitle from '../../../hooks/useTitle';
 
 const AllUser = () => {
+    const [loading, setLoading] = useState(true);
     useTitle('Dashboard/All User');
     const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
             const res = await fetch('https://assignment-12-server-iota.vercel.app/users');
             const data = await res.json();
+            setLoading(false);
             return data;
         }
     });
@@ -28,9 +30,14 @@ const AllUser = () => {
                 }
             })
     }
+
+    if (loading) {
+        return <div className='flex justify-center'><progress className="progress w-56"></progress></div>;
+    }
     return (
         <div>
-            <div className="overflow-x-auto">
+            <p className='text-2xl font-semibold font-serif text-center divider'>All User</p>
+            <div className="overflow-x-auto mt-6">
                 <table className="table w-full">
                     <thead>
                         <tr>

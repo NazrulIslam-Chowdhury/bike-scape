@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import Footer from '../shared/Footer/Footer';
 import Navbar from '../shared/Navbar/Navbar';
 
 const DasboardLayout = () => {
@@ -23,6 +24,9 @@ const DasboardLayout = () => {
                     </ul>
 
                 </div>
+            </div>
+            <div className='mt-8'>
+                <Footer></Footer>
             </div>
         </div>
     );

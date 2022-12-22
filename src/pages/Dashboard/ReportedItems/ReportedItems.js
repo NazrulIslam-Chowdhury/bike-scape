@@ -1,15 +1,18 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import { useState } from 'react';
 import toast from 'react-hot-toast';
 import useTitle from '../../../hooks/useTitle';
 
 const ReportedItems = () => {
+    const [loading, setLoading] = useState(true);
     useTitle('Dashboard/Reported Items');
     const { data: items = [], refetch } = useQuery({
         queryKey: ['items'],
         queryFn: async () => {
             const res = await fetch('https://assignment-12-server-iota.vercel.app/report-items');
             const data = await res.json();
+            setLoading(false);
             return data;
         }
     })
@@ -29,9 +32,14 @@ const ReportedItems = () => {
                 })
         }
     }
+
+    if (loading) {
+        return <div className='flex justify-center'><progress className="progress w-56"></progress></div>;
+    }
     return (
         <div>
-            <div className="overflow-x-auto">
+            <p className='text-2xl font-semibold font-serif text-center divider'>Reported Items</p>
+            <div className="overflow-x-auto mt-6">
                 <table className="table w-full">
                     <thead>
                         <tr>

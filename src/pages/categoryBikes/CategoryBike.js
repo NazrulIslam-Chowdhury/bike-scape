@@ -32,7 +32,7 @@ const CategoryBike = ({ bike, setBookProduct }) => {
     }
     return (
         <div>
-            <div className="card card-compact w-96 bg-base-200 shadow-2xl rounded-none">
+            <div className="card card-compact w-auto h-content bg-base-200 shadow-2xl shadow-black rounded-b-lg rounded-t-none">
                 <figure><img className='max-h-64' src={image_url} alt="Bike" /></figure>
                 <div className="card-body">
                     <div>

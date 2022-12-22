@@ -9,7 +9,7 @@ const SellerRoute = ({ children }) => {
     const location = useLocation();
 
     if (isLoading || isSellerLoading) {
-        return <progress className="progress w-56"></progress>
+        return <div className='flex justify-center'><progress className="progress w-56"></progress></div>;
     }
 
     if (user && isSeller) {

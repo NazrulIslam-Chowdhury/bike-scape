@@ -10,12 +10,14 @@ const Home = () => {
     useTitle('Home');
     const { isLoading } = useContext(AuthContext);
     if (isLoading) {
-        return <progress className="progress w-56"></progress>;
+        return <div className='flex justify-center'><progress className="progress w-56"></progress></div>;
     }
     return (
         <div>
             <Banner></Banner>
-            <AdvertiseItems></AdvertiseItems>
+            <div className='mt-10'>
+                <AdvertiseItems></AdvertiseItems>
+            </div>
             <Categories></Categories>
             <Stat></Stat>
         </div>

@@ -14,12 +14,12 @@ const CategoryBikes = () => {
     useTitle('Category Bikes');
 
     if (isLoading) {
-        return <progress className="progress w-56"></progress>;
+        return <div className='flex justify-center'><progress className="progress w-56"></progress></div>;
     }
     return (
         <div>
             <Navbar></Navbar>
-            <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-x-5 gap-y-8 mt-14 ml-10'>
+            <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 mt-14 mx-6'>
                 {
                     bikes.map((bike, idx) => <CategoryBike key={idx} bike={bike} setBookProduct={setBookProduct}></CategoryBike>)
                 }
@@ -28,7 +28,7 @@ const CategoryBikes = () => {
                 bookProduct &&
                 <BookingModal bookProduct={bookProduct} setBookProduct={setBookProduct}></BookingModal>
             }
-            <Link to='/'><button className='btn ml-14 mt-6 flex items-center gap-x-1'><FaArrowAltCircleLeft /> Back</button></Link>
+            <Link to='/'><button className='btn ml-6 mt-10 flex items-center gap-x-1 shadow-lg shadow-black'><FaArrowAltCircleLeft /> Back</button></Link>
         </div>
     );
 };
