@@ -56,7 +56,6 @@ const SignUp = () => {
         loginWithGoogle()
             .then(result => {
                 const user = result.user;
-                toast.success(`${user.displayName}Logged in successfully`)
                 // console.log(user)
 
                 const socialUser = {
@@ -75,6 +74,7 @@ const SignUp = () => {
                     .then(res => res.json())
                     .then(data => {
                         // console.log(data)
+                        toast.success(`${user.displayName}Logged in successfully`);
                         navigate('/');
                     })
             })

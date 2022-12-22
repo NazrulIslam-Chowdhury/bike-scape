@@ -34,9 +34,30 @@ const Login = () => {
         loginWithGoogle()
             .then(result => {
                 const user = result.user;
-                toast.success(`${user.displayName}Logged in successfully`)
                 // console.log(user)
-                navigate(from, { replace: true })
+
+                const socialUser = {
+                    displayName: user.displayName,
+                    email: user.email,
+                    photoURL: user.photoURL,
+                    activity: "Buyer"
+                }
+                if (user.activity) {
+                    fetch('https://assignment-12-server-iota.vercel.app/users', {
+                        method: 'POST',
+                        headers: {
+                            'content-type': 'application/json'
+                        },
+                        body: JSON.stringify(socialUser)
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            // console.log(data)
+                            toast.success(`${user.displayName}Logged in successfully`)
+                            navigate(from, { replace: true })
+                        })
+                }
+                return;
             })
             .catch(error => console.error(error))
     }
