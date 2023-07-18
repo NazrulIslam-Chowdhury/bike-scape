@@ -7,7 +7,6 @@ const Category = ({ category }) => {
     return (
         <Link to={`/category-bikes/${category._id}`}>
             <div className='w-[400px] h-[500px] border-[1px] border-solid border-black overflow-hidden relative'>
-
                 <img
                     src={img}
                     alt={category_name}
