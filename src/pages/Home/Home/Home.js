@@ -15,10 +15,10 @@ const Home = () => {
     return (
         <div>
             <Banner></Banner>
+            <Categories></Categories>
             <div className='mt-10'>
                 <AdvertiseItems></AdvertiseItems>
             </div>
-            <Categories></Categories>
             <Stat></Stat>
         </div>
     );

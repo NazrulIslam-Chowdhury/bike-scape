@@ -21,9 +21,12 @@ const Categories = () => {
     }
 
     return (
-        <div className='mt-10'>
-            <p className='text-center text-4xl font-bold text-gray-400 divider mx-20'>Category</p>
-            <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 mx-6 mt-10'>
+        <div className='py-20 space-y-20'>
+            <div className='pl-[119px] space-y-5'>
+                <h3 className='bg-red-600 text-white text-lg font-medium px-4 py-2 inline-block uppercase'>Our Categories</h3>
+                <h1 className='text-white text-6xl font-bold uppercase'>Inventory Types</h1>
+            </div>
+            <div className='flex gap-10 flex-wrap justify-center'>
                 {
                     categories.map(category => <Category key={category._id} category={category}></Category>)
                 }
