@@ -17,9 +17,9 @@ const About = () => {
             <Parallax
                 bgImage={bg}
                 strength={600}
-                className='w-auto h-[100vh] relative'
+                className='w-auto h-[100vh] flex items-center justify-center'
             >
-                <div className='flex justify-center absolute top-32 left-40'>
+                <div className=''>
                     <ReactPlayer
                         url='https://www.youtube.com/watch?v=aTJxpFCsvW4'
                         controls={true}
