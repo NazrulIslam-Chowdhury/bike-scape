@@ -24,7 +24,7 @@ const Categories = () => {
         <div className='py-20 space-y-20'>
             <div className='sm:pl-[119px] pl-5 space-y-5 '>
                 <h3 className='bg-red-600 text-white text-lg font-medium px-4 py-2 inline-block uppercase'>Our Categories</h3>
-                <h1 className='text-white text-6xl font-bold uppercase'>Inventory Types</h1>
+                <h1 className='text-white text-5xl font-bold uppercase'>Inventory Types</h1>
             </div>
             <div className='flex gap-10 flex-wrap justify-center'>
                 {
