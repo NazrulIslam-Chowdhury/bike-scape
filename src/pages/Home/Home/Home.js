@@ -6,6 +6,7 @@ import Categories from '../Category/Categories';
 import Stat from '../extraSection/Stat';
 import Banner from './Banner/Banner';
 import About from '../About/About';
+import Contact from '../Contact/Contact';
 
 const Home = () => {
     useTitle('Home');
@@ -20,9 +21,10 @@ const Home = () => {
             <div>
                 <About />
             </div>
-            <div className='mt-10'>
+            <div>
                 <AdvertiseItems></AdvertiseItems>
             </div>
+            <Contact />
             <Stat></Stat>
         </div>
     );

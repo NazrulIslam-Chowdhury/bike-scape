@@ -24,7 +24,7 @@ const AdvertiseItems = () => {
                 <h3 className='bg-red-600 text-white text-lg font-medium px-4 py-2 inline-block uppercase'>Featured Bike</h3>
                 <h1 className='text-white text-5xl font-bold uppercase'>latest motorbikes</h1>
             </div>
-            <div className='flex gap-10 items-center justify-center px-[119px]'>
+            <div className='flex lg:flex-row md:flex-col flex-col gap-10 items-center justify-center px-[119px]'>
                 {
                     advertiseItems.map(item => <Item key={item._id} item={item}></Item>)
                 }
