@@ -67,6 +67,7 @@ const Item = ({ item }) => {
                                 <p><span className='text-red-600 text-lg font-medium'>Market Price</span> : {original_price}tk</p>
                             </div>
                         </div>
+                        <hr className='mt-4' />
                         <div className='mt-4'>
                             <Link to=''>
                                 <button className="text-lg bg-red-600 hover:bg-red-800 px-8 py-2 font-bold">Buy</button>

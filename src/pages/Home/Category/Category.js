@@ -11,7 +11,7 @@ const Category = ({ category }) => {
                     src={img}
                     alt={category_name}
                     loading='lazy'
-                    className='w-full h-full hover:-translate-y-24 duration-[1s] cursor-pointer absolute object-cover'
+                    className='w-full h-full hover:-translate-y-24 delay-200 transition-transform duration-[1s] cursor-pointer absolute object-cover'
                 />
 
                 <div className='flex flex-col items-start absolute bottom-0 p-10'>
