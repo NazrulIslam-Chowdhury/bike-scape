@@ -6,7 +6,7 @@ import Navbar from '../../../../shared/Navbar/Navbar';
 const Banner = () => {
     return (
         <section className='relative'>
-            <div className='absolute z-10 w-full'>
+            <div className='fixed z-10 w-full'>
                 <Navbar />
             </div>
             <video

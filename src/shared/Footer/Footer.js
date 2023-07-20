@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../../assets/ei_1671689660769-removebg-preview.png';
+import logo from '../../assets/logo.png';
 
 const Footer = () => {
     return (
         <div className='mt-10'>
             <footer className="footer p-10 bg-base-200 text-base-content">
                 <div>
-                    <img src={logo} alt="" className='h-44 w-44' />
+                    <img src={logo} alt="" className='w-auto sm:h-24 h-20' />
                     <p> <strong className='text-2xl'>Bike Scape</strong> <br /> Providing reliable fresh bike since 2022 </p>
                 </div>
                 <div>
