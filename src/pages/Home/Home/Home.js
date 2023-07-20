@@ -8,6 +8,7 @@ import About from '../About/About';
 import Contact from '../Contact/Contact';
 import Kits from '../Kits/Kits';
 import Blog from '../Blog/Blog';
+import Search from '../Search/Search';
 
 const Home = () => {
     useTitle('Home');
@@ -18,6 +19,7 @@ const Home = () => {
     return (
         <div>
             <Banner />
+            <Search />
             <Categories />
             <About />
             <AdvertiseItems />
