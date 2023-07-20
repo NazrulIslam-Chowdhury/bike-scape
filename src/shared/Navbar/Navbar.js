@@ -23,8 +23,8 @@ const Navbar = () => {
     }
 
     return (
-        <div>
-            <div className="navbar bg-gradient-to-l from-sky-300 to-transparent p-0">
+        <div className=''>
+            <div className="navbar bg-base-200 bg-opacity-[0.7] p-0">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -90,9 +90,9 @@ const Navbar = () => {
                     <div className='mr-2'>
                         {
                             user?.uid ?
-                                <Link onClick={logOutOnClick} className="btn btn-primary lg:btn md:btn-sm sm:btn-xs text-white text-lg font-medium font-serif">Log out</Link>
+                                <Link onClick={logOutOnClick} className="bg-red-600 hover:red-800 px-6 py-2 text-xl text-white font-semibold">Log out</Link>
                                 :
-                                <Link to='/login' className="btn btn-primary lg:btn md:btn-sm sm:btn-xs text-white text-lg font-medium font-serif">Login</Link>
+                                <Link to='/login' className="bg-red-600 hover:red-800 px-6 py-2 text-xl text-white font-semibold">Login</Link>
                         }
                     </div>
 

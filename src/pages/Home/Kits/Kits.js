@@ -21,9 +21,9 @@ const Kits = () => {
                                         alt={kit.Model}
                                         loading='lazy'
                                     />
-                                    <div className='absolute h-full w-full -bottom-10 group-hover:bottom-0 opacity-0 group-hover:opacity-100 transition-all duration-300'>
+                                    <div className='absolute h-full w-full -bottom-10 group-hover:bottom-0 opacity-0 group-hover:opacity-100 transition-all duration-300 cursor-pointer'>
                                         <div className='absolute flex flex-col gap-5 right-2 top-2 '>
-                                            <AiOutlineHeart className='w-5 h-5 cursor-pointer' />
+                                            <AiOutlineHeart className='w-5 h-5 cursor-pointer text-red-600' />
                                             <AiOutlineEye className='w-5 h-5 cursor-pointer' />
                                         </div>
                                         <h3 className='absolute bottom-0 bg-red-600 hover:bg-red-800 w-full text-center text-xl text-white font-semibold py-4 cursor-pointer'>Buy now</h3>

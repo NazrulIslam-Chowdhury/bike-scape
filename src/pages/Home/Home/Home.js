@@ -3,11 +3,11 @@ import { AuthContext } from '../../../AuthProvider/AuthProvider';
 import useTitle from '../../../hooks/useTitle';
 import AdvertiseItems from '../AdvertiseItems/AdvertiseItems';
 import Categories from '../Category/Categories';
-import Stat from '../extraSection/Stat';
 import Banner from './Banner/Banner';
 import About from '../About/About';
 import Contact from '../Contact/Contact';
 import Kits from '../Kits/Kits';
+import Blog from '../Blog/Blog';
 
 const Home = () => {
     useTitle('Home');
@@ -17,17 +17,13 @@ const Home = () => {
     }
     return (
         <div>
-            <Banner></Banner>
-            <Categories></Categories>
-            <div>
-                <About />
-            </div>
-            <div>
-                <AdvertiseItems></AdvertiseItems>
-            </div>
+            <Banner />
+            <Categories />
+            <About />
+            <AdvertiseItems />
             <Contact />
             <Kits />
-            <Stat></Stat>
+            <Blog />
         </div>
     );
 };

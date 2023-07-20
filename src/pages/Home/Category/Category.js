@@ -5,8 +5,8 @@ const Category = ({ category }) => {
     const { category_name, img } = category;
 
     return (
-        <Link to={`/category-bikes/${category._id}`}>
-            <div className='w-[400px] h-[500px] border-[1px] border-solid border-black overflow-hidden relative'>
+        <Link to={`/category-bikes/${category._id}`} className=''>
+            <div className='w-[400px] h-[500px] border-[1px] border-solid border-black overflow-hidden relative group'>
                 <img
                     src={img}
                     alt={category_name}
@@ -16,7 +16,7 @@ const Category = ({ category }) => {
 
                 <div className='flex flex-col items-start absolute bottom-0 p-10'>
                     <h1
-                        className='text-white hover:text-red-600 text-4xl font-bold'>
+                        className='text-white hover:text-red-600 text-4xl font-bold group-hover:text-red-600'>
                         {category_name}</h1>
                 </div>
             </div>
