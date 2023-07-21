@@ -128,12 +128,12 @@ const SignUp = () => {
                                 </select>
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn btn-primary">Signup</button>
+                                <button className="btn bg-red-600 hover:bg-red-800 text-xl text-white uppercase">Signup</button>
                             </div>
                             <p>Already have an account ? <Link to='/login' className='font-semibold text-lg'>Login</Link></p>
 
                         </form>
-                        <button onClick={handleGoogleLogIn} className="btn btn-primary mt-5"><FaGoogle className='mr-2' /> Continuing with Google <FaLongArrowAltRight className='ml-2 h-6 w-6' /></button>
+                        <button onClick={handleGoogleLogIn} className="btn btn-primary mt-5 text-xl text-white uppercase"><FaGoogle className='mr-2' /> Continuing with Google <FaLongArrowAltRight className='ml-2 h-6 w-6' /></button>
                     </div>
                 </div>
             </div>

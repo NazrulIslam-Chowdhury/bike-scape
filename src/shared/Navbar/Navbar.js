@@ -33,10 +33,14 @@ const Navbar = () => {
                         <ul tabIndex={1} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                             <li><Link className='text-white text-lg font-medium font-serif' to='/'>Home</Link></li>
                             <li><Link className='text-white text-lg font-medium font-serif' to='/blog'>Blog</Link></li>
+
+                            {/* buyer route */}
                             {
                                 isBuyer &&
                                 <li><Link className='text-white text-lg font-medium font-serif' to='/my-orders'>My Orders</Link></li>
                             }
+
+                            {/* seller route */}
                             {
                                 isSeller &&
                                 <>
@@ -44,23 +48,33 @@ const Navbar = () => {
                                     <li><Link className='text-white text-lg font-medium font-serif' to='/add-product'>Add A Product</Link></li>
                                 </>
                             }
+
+                            {/* admin route */}
                             {
                                 isAdmin &&
                                 <li><Link className='text-white text-lg font-medium font-serif' to='/dashboard'>Dashboard</Link></li>
                             }
+
+                            {/* user img with title */}
                             <div className="tooltip tooltip-bottom tooltip-success" data-tip={user?.displayName}>
-                                <img className='w-10 h-10 rounded-full border-none mr-1' src={user?.photoURL} alt="" />
+                                <img className='w-10 h-10 rounded-full border-none mr-1 object-cover' src={user?.photoURL} alt="" />
                             </div>
                         </ul>
                     </div>
+
+
                     <div className="navbar-center hidden lg:flex">
                         <ul className="menu menu-horizontal p-0">
                             <li><Link className='text-white text-lg font-medium font-serif' to='/'>Home</Link></li>
                             <li><Link className='text-white text-lg font-medium font-serif' to='/blog'>Blog</Link></li>
+
+                            {/* buyer route */}
                             {
                                 isBuyer &&
                                 <li><Link className='text-white text-lg font-medium font-serif' to='/my-orders'>My Orders</Link></li>
                             }
+
+                            {/* seller route */}
                             {
                                 isSeller &&
                                 <>
@@ -68,10 +82,14 @@ const Navbar = () => {
                                     <li><Link className='text-white text-lg font-medium font-serif' to='/add-product'>Add A Product</Link></li>
                                 </>
                             }
+
+                            {/* admin route */}
                             {
                                 isAdmin &&
                                 <li><Link className='text-white text-lg font-medium font-serif' to='/dashboard'>Dashboard</Link></li>
                             }
+
+                            {/* user img */}
                             <div className="tooltip tooltip-bottom tooltip-success" data-tip={user?.displayName}>
                                 <img className='w-10 h-10 rounded-full border-none mr-1' src={user?.photoURL} alt="" />
                             </div>

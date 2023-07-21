@@ -55,14 +55,14 @@ const Login = () => {
                         <div className="card-body">
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Email</span>
+                                    <span className="label-text text-lg text-white">Email</span>
                                 </label>
                                 <input {...register('email', { required: true })} type="email" placeholder="email" className="input input-bordered" />
 
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Password</span>
+                                    <span className="label-text text-lg text-white">Password</span>
                                 </label>
                                 <input {...register('password', { required: true })} type="password" placeholder="password" className="input input-bordered" />
                                 {
@@ -75,8 +75,8 @@ const Login = () => {
                             <p>Don't have an account ? <Link to='/signup' className='font-semibold text-lg'>Sign up now</Link></p>
                             <p className='text-lg font-semibold text-gray-300 mt-2'><strong>Note:</strong> Without registration you can not see your ordered products or selling products.</p>
                             <div className="form-control mt-6">
-                                <button className="btn btn-primary">Login</button>
-                                <button onClick={handleGoogleLogIn} className="btn btn-primary mt-5"><FaGoogle className='mr-2' /> Login with Google <FaLongArrowAltRight className='ml-2 h-6 w-6' /></button>
+                                <button className="btn bg-red-600 hover:bg-red-800 text-xl text-white uppercase">Login</button>
+                                <button onClick={handleGoogleLogIn} className="btn btn-primary text-xl text-white uppercase mt-5"><FaGoogle className='mr-2' /> Login with Google <FaLongArrowAltRight className='ml-2 h-6 w-6' /></button>
                             </div>
                         </div>
                     </form>
